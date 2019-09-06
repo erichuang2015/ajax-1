@@ -33,7 +33,7 @@
                 );
 
                 # Crear el objeto Model
-                $modeloController = $this->cargarModelo( __CLASS__ );
+                $modeloController = $this->loadModel( __CLASS__ );
 
                 # Metodo que conecta a la bd
                 $rs = $modeloController->iniciarModel( $datosController );
@@ -54,18 +54,6 @@
             }
             
             
-        } # fin del metodo
-
-        public function cargarModelo( $modelo ){
-            $modelo = str_replace( 'Controller', 'Model', $modelo );
-            $model = null;
-            if( file_exists( PATH_MOD . $modelo . ".php" ) ){
-                require_once PATH_MOD . $modelo . ".php";
-                $model = new $modelo();
-            }else{
-                $model = "<p>No se encontro el modelo</p>";
-            }
-            return $model;
         } # fin del metodo
 
         public function validacionCorreo( $correo ){
