@@ -33,22 +33,22 @@
                             <th scope="col">Ver mas</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody-clientes">
                         <?php
                             foreach ($this->clientes as $cliente) {
                                 echo '
-                                    <tr>
-                                        <th scope="row">'.$cliente['id_cliente'].'</th>
-                                        <td>'.$cliente['razon_social'].'</td>
-                                        <td>'.$cliente['rfc'].'</td>
-                                        <td>'.$cliente['correo'].'</td>
-                                        <td>'.$cliente['nombre'].'</td>
-                                        <td>
-                                            <button class="btn btn-info">Editar</button>
-                                            <button class="btn btn-danger">Eliminar</button>
-                                        </td>
-                                        <td><button class="btn btn-outline-dark">ver perfil</button></td>
-                                    </tr>
+                        <tr id="'.$cliente['rfc'].'">
+                            <th scope="row">'.$cliente['id_cliente'].'</th>
+                            <td>'.$cliente['razon_social'].'</td>
+                            <td>'.$cliente['rfc'].'</td>
+                            <td>'.$cliente['correo'].'</td>
+                            <td>'.$cliente['nombre'].'</td>
+                            <td>
+                                <button class="btn btn-info">Editar</button>
+                                <button class="btn btn-danger" id="btnEliminar">Eliminar</button>
+                            </td>
+                            <td><button class="btn btn-outline-dark">ver perfil</button></td>
+                        </tr>
                                 ';
                             }
                         ?>

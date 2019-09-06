@@ -35,6 +35,21 @@
             }
         } # fin del metodo
 
+        public function delete( $rfc ){
+            try {
+                $query = "delete from cliente where rfc=:rfc";
+                $db = $this->db->connect()->prepare( $query );
+                $rs = $db->execute([
+                    ':rfc' => $rfc
+                ]);
+                
+                    
+                return $rs;
+            } catch (PDOException $e) {
+                echo "<p>Error no se pudo agregar al nuevo cliente debido a: </p>".$e->getMessage();
+            }
+        } # fin del metodo
+
     } # fin de la clase
 
 ?>

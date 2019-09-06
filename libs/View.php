@@ -9,6 +9,7 @@
         public $titulo;
         public $errores = array();
         public $msjAddCliente = "";
+        public $msjRmCliente = "";
         public $clientes = array();
 
         #         M E T O D O S

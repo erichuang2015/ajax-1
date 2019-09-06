@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12 text-right">
                 <?php echo $this->msjAddCliente; ?>
-                <a href="<?php echo PATH; ?>cliente" class="btn btn-danger text-white">Cancelar</a>
+                <a href="<?php echo PATH; ?>cliente" class="btn btn-primary text-white">Regresar</a>
             </div>
             <div class="col-12 m-auto">
                 <p><b>Para crear un nuevo cliente llene el siguiente fomulario, los campos con <span class="text-danger">*</span> sin obligatorios.</b></p>

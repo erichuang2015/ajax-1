@@ -53,6 +53,16 @@
             return $rs = $model->selectAll();
         } # fin del metodo
 
+        public function eliminarCliente( $id ){
+            $rfc = $id[0];
+            $model = $this->loadModel( __CLASS__ );
+            $rs = $model->delete( $rfc );
+            if( !$rs ){
+                echo "<p>Error al eliminar</p>";
+            }
+            $this->render();
+        } # fin del metodo
+
     } # fin de la clase
 
 ?>
