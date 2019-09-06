@@ -8,8 +8,8 @@
 
         <!-- Elementos sidebar -->
         <div class="list-group list-group-flush">
-            <a href="dashboard" class="list-group-item list-group-item-action bg-dark text-light">Inicio</a>
-            <a href="cliente" class="list-group-item list-group-item-action bg-dark text-light">Clientes</a>
+            <a href="<?php echo PATH; ?>dashboard" class="list-group-item list-group-item-action bg-dark text-light">Inicio</a>
+            <a href="<?php echo PATH; ?>cliente" class="list-group-item list-group-item-action bg-dark text-light">Clientes</a>
             <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Dependencias</a>
             <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Tramites</a>
             <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Pendiente</a>

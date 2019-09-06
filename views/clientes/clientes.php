@@ -16,7 +16,7 @@
                             </form>
                         </div>
                         <div class="col">
-                            <button class="btn btn-success float-right">Agregar un nuevo cliente</button>
+                            <a href="<?php echo PATH; ?>cliente/nuevoCliente" class="btn btn-success float-right text-white">Agregar un nuevo cliente</a>
                         </div>
                     </div>
                 </div>
