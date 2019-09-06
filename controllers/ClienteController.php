@@ -8,6 +8,7 @@
         } # fin del constructor
 
         public function render(){
+            $this->viewController->clientes = $this->listar();
             $this->viewController->render( 'clientes/clientes' );
         } # fin del metodo
 
@@ -45,6 +46,11 @@
                 }
                 $this->viewController->render( 'clientes/nuevoCliente' );
             }
+        } # fin del metodo
+
+        public function listar(){
+            $model = $this->loadModel( __CLASS__ );
+            return $rs = $model->selectAll();
         } # fin del metodo
 
     } # fin de la clase

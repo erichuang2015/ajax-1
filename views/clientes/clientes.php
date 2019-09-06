@@ -34,30 +34,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Frato S.A de C.V.</td>
-                            <td>FRATO12321</td>
-                            <td>frato@mdo.com</td>
-                            <td>Francisco Torres Montiel</td>
-                            <td>
-                                <button class="btn btn-info">Editar</button>
-                                <button class="btn btn-danger">Eliminar</button>
-                            </td>
-                            <td><button class="btn btn-outline-dark">ver perfil</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Frato S.A de C.V.</td>
-                            <td>FRATO12321</td>
-                            <td>frato@mdo.com</td>
-                            <td>Francisco Torres Montiel</td>
-                            <td>
-                                <button class="btn btn-info">Editar</button>
-                                <button class="btn btn-danger">Eliminar</button>
-                            </td>
-                            <td><button class="btn btn-outline-dark">ver perfil</button></td>
-                        </tr>
+                        <?php
+                            foreach ($this->clientes as $cliente) {
+                                echo '
+                                    <tr>
+                                        <th scope="row">'.$cliente['id_cliente'].'</th>
+                                        <td>'.$cliente['razon_social'].'</td>
+                                        <td>'.$cliente['rfc'].'</td>
+                                        <td>'.$cliente['correo'].'</td>
+                                        <td>'.$cliente['nombre'].'</td>
+                                        <td>
+                                            <button class="btn btn-info">Editar</button>
+                                            <button class="btn btn-danger">Eliminar</button>
+                                        </td>
+                                        <td><button class="btn btn-outline-dark">ver perfil</button></td>
+                                    </tr>
+                                ';
+                            }
+                        ?>
                     </tbody>
                 </table>    
             </div>

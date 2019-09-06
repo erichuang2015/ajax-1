@@ -21,6 +21,20 @@
 
         } # fin del metodo
 
+        public function selectAll(){
+            $record = array();
+            try {
+                $query = "select id_cliente, razon_social, rfc, correo, nombre from cliente";
+                $db = $this->db->connect();
+                $rs = $db->query($query);
+                
+                    
+                return $rs->fetchAll();
+            } catch (PDOException $e) {
+                echo "<p>Error no se pudo agregar al nuevo cliente debido a: </p>".$e->getMessage();
+            }
+        } # fin del metodo
+
     } # fin de la clase
 
 ?>
