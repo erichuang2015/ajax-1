@@ -8,6 +8,7 @@
         # ---------------------------------
         public $titulo;
         public $errores = array();
+        public $msjAddCliente = "";
 
         #         M E T O D O S
         # ---------------------------------

@@ -1,0 +1,26 @@
+<?php
+
+
+
+    class ClienteModel extends Model{
+
+        public function __construct(){
+            parent::__construct();
+        } # fin del constructor
+
+        public function insertClientModel( $datos ){
+            $llaves = array_keys( $datos );
+            try {
+                $query = "insert into cliente (".implode(', ',$llaves).") values (:".implode(', :', $llaves).")";
+                $db = $this->db->connect()->prepare( $query );
+                $stmt = $db->execute( $datos );
+                return $stmt;
+            } catch (PDOException $e) {
+                echo "<p>Error no se pudo agregar al nuevo cliente debido a: </p>".$e->getMessage();
+            }
+
+        } # fin del metodo
+
+    } # fin de la clase
+
+?>
