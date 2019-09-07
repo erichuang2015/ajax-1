@@ -21,10 +21,35 @@
 
         } # fin del metodo
 
+        public function updateClientModel( $datos ){
+            $llaves = array_keys( $datos );
+            try {
+                $query = "update cliente set razon_social=:razon_social, rfc=:rfc, direccion=:direccion, telefono=:telefono, correo=:correo, nombre=:nombre, apaterno=:apaterno, amaterno=:amaterno, celular_repre=:celular_repre, correo_repre=:correo_repre where id_cliente=:id_cliente";
+                $db = $this->db->connect()->prepare( $query );
+                $stmt = $db->execute( [
+                    ':razon_social' => $datos['razon_social'],
+                    ':rfc' => $datos['rfc'],
+                    ':direccion' => $datos['direccion'],
+                    ':telefono' => $datos['telefono'],
+                    ':correo' => $datos['correo'],
+                    ':nombre' => $datos['nombre'],
+                    ':apaterno' => $datos['apaterno'],
+                    ':amaterno' => $datos['amaterno'],
+                    ':celular_repre' => $datos['celular_repre'],
+                    ':correo_repre' => $datos['correo_repre'],
+                    ':id_cliente' => $datos['id_cliente']
+                ] );
+                return $stmt;
+            } catch (PDOException $e) {
+                echo "<p>Error no se pudo agregar al nuevo cliente debido a: </p>".$e->getMessage();
+            }
+
+        } # fin del metodo
+
         public function selectAll(){
             $record = array();
             try {
-                $query = "select id_cliente, razon_social, rfc, correo, nombre from cliente";
+                $query = "select * from cliente";
                 $db = $this->db->connect();
                 $rs = $db->query($query);
                 

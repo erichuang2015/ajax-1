@@ -37,17 +37,30 @@
                         <?php
                             foreach ($this->clientes as $cliente) {
                                 echo '
-                        <tr id="'.$cliente['rfc'].'">
-                            <th scope="row">'.$cliente['id_cliente'].'</th>
-                            <td>'.$cliente['razon_social'].'</td>
-                            <td>'.$cliente['rfc'].'</td>
-                            <td>'.$cliente['correo'].'</td>
-                            <td>'.$cliente['nombre'].'</td>
+                        <tr id="'.$cliente['RFC'].'">
+                            <th scope="row">'.$cliente['ID_CLIENTE'].'</th>
+                            <td>'.$cliente['RAZON_SOCIAL'].'</td>
+                            <td>'.$cliente['RFC'].'</td>
+                            <td>'.$cliente['CORREO'].'</td>
+                            <td>'.$cliente['NOMBRE'].'</td>
                             <td>
-                                <button class="btn btn-info">Editar</button>
+                                <a href="'.PATH .'cliente/editarCliente/'
+                                .$cliente['ID_CLIENTE'].'/'
+                                .str_replace(' ', '-', $cliente['RAZON_SOCIAL']).'/'
+                                .$cliente['RFC'].'/'
+                                .$cliente['CORREO'].'/'
+                                .$cliente['TELEFONO'].'/'
+                                .str_replace(' ', '-', str_replace('#', 'Num.', $cliente['DIRECCION'])).'/'
+                                
+                                .str_replace(' ', '-', $cliente['NOMBRE']).'/'
+                                .$cliente['APATERNO'].'/'
+                                .$cliente['AMATERNO'].'/'
+                                .$cliente['CORREO_REPRE'].'/'
+                                .$cliente['CELULAR_REPRE'].
+                                '" class="btn btn-info text-white">Editar</a>
                                 <button class="btn btn-danger" id="btnEliminar">Eliminar</button>
                             </td>
-                            <td><button class="btn btn-outline-dark">ver perfil</button></td>
+                            <td><a href="'.PATH.'cliente/perfilCliente'.'" class="btn btn-outline-dark">ver perfil</a></td>
                         </tr>
                                 ';
                             }
