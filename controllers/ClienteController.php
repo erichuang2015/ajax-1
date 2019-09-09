@@ -1,6 +1,8 @@
 <?php
-
+    require_once 'libs/Cliente.php';
     class ClienteController extends Controller{
+
+        protected $clienteController = array();
 
         public function __construct(){
             parent::__construct();
@@ -17,7 +19,23 @@
             $this->viewController->render( 'clientes/nuevoCliente' );
         } # fin del metodo
 
-        public function perfilCliente(){
+        public function perfilCliente( $rfc ){
+            $model = $this->loadModel( __CLASS__ );
+            $rs = $model->selectByRFC( $rfc[0] );
+            $clienteController = new Cliente(
+                $rs['ID_CLIENTE'],
+                $rs['RAZON_SOCIAL'],
+                $rs['RFC'],
+                $rs['DIRECCION'],
+                $rs['TELEFONO'],
+                $rs['CORREO'],
+                $rs['NOMBRE'],
+                $rs['APATERNO'],
+                $rs['AMATERNO'],
+                $rs['CELULAR_REPRE'],
+                $rs['CORREO_REPRE']
+            );
+            $this->viewController->cliente = $clienteController;
             $this->viewController->render( 'clientes/perfilCliente' );
         } # fin del metodo
 
@@ -35,7 +53,6 @@
                 'correo_repre'  => $params[9],
                 'celular_repre' => $params[10]
             );
-            $this->viewController->clientes = $datos;
             $this->viewController->render( 'clientes/editarCliente' );
         } # fin del metodo
 

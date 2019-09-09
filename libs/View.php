@@ -1,6 +1,6 @@
 <?php
 
-
+    require_once 'Cliente.php';
 
     class View{
         
@@ -11,6 +11,7 @@
         public $msjAddCliente = "";
         public $msjRmCliente = "";
         public $clientes = array();
+        public $cliente;
 
         #         M E T O D O S
         # ---------------------------------

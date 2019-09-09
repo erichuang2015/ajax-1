@@ -35,15 +35,39 @@
                 <tbody>
                     <tr>
                         <th scope="row" class="table-secondary">Razón Social</td>
-                        <td>La Giralda</td>
+                        <td><?php echo $this->cliente->getRazonSocial(); ?></td>
                     </tr>
                     <tr>
-                        <th scope="row" class="table-secondary">Razón Social</td>
-                        <td>La Giralda</td>
+                        <th scope="row" class="table-secondary">Registro Federal de Contribuyente</td>
+                        <td><?php echo $this->cliente->getRFC(); ?></td>
                     </tr>
                     <tr>
-                        <th scope="row" class="table-secondary">Razón Social</td>
-                        <td>La Giralda</td>
+                        <th scope="row" class="table-secondary">Dirección</td>
+                        <td><?php echo $this->cliente->getDireccion(); ?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="table-secondary">Telefono oficina</td>
+                        <td><?php echo $this->cliente->getTelefono(); ?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="table-secondary">Correo Empresarial</td>
+                        <td><?php echo $this->cliente->getCorreo(); ?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="table-secondary">Telefono oficina</td>
+                        <td><?php echo $this->cliente->getTelefono(); ?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="table-secondary">Representante Legal</td>
+                        <td><?php echo $this->cliente->toString(); ?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="table-secondary">Celular de contacto</td>
+                        <td><?php echo $this->cliente->getCelularRepre(); ?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="table-secondary">Correo personal</td>
+                        <td><?php echo $this->cliente->getCorreoRepre(); ?></td>
                     </tr>
                 </tbody>
             </table>   

@@ -60,7 +60,7 @@
                                 '" class="btn btn-info text-white">Editar</a>
                                 <button class="btn btn-danger" id="btnEliminar">Eliminar</button>
                             </td>
-                            <td><a href="'.PATH.'cliente/perfilCliente'.'" class="btn btn-outline-dark">ver perfil</a></td>
+                            <td><a href="'.PATH.'cliente/perfilCliente/'.$cliente['RFC'].'" class="btn btn-outline-dark">ver perfil</a></td>
                         </tr>
                                 ';
                             }
