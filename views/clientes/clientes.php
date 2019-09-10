@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if( !$_SESSION['status'] ){
+        header( 'Location: login' );
+    }
+?>
 <?php include_once PATH_VIS . "includes/header.php"; ?>
 <?php include_once PATH_VIS . "includes/nav.php"; ?>
   
@@ -10,8 +16,8 @@
                 <div class="container-fluid my-3">
                     <div class="row">
                         <div class="col mx-auto align-self-center">
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="RFC o razon social" aria-label="Search">
+                            <form class="form-inline my-2 my-lg-0" id="buscarClienteBtn">
+                                <input class="form-control mr-sm-2" type="search" placeholder="RFC o razon social" id="buscarCliente" aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                             </form>
                         </div>

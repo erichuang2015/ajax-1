@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if( !$_SESSION['status'] ){
+        header( 'Location: login' );
+    }
+?>
 <?php include_once PATH_VIS . "includes/header.php"; ?>
 <?php include_once PATH_VIS . "includes/nav.php"; ?>
 

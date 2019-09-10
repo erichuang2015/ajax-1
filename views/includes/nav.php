@@ -1,3 +1,4 @@
+
 <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
@@ -31,21 +32,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <span class="nav-link" href="#"><?php echo $_SESSION['nombreCompleto']; ?> <span class="sr-only">(current)</span></span>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            <img src="<?php echo PUBLIC_P; ?>images/profile_user.png" class="rounded-circle img-fluid" width="35" height="35">
                         </a>
                         <!-- Contenido drop -->
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Proximamente</a>
+                            <a class="dropdown-item" href="#">Proximamente</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="<?php echo PATH; ?>login/cerrar">Cerrar Sesión</a>
                         </div>
                     </li>
                 </ul>

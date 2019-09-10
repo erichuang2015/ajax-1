@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if( isset($_SESSION['status']) ){
+        header( 'Location: dashboard' );
+    }
+?>
 <?php include_once PATH_VIS . "includes/header.php"; ?>
 
     <div class="body-login">

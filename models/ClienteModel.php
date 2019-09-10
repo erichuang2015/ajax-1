@@ -75,6 +75,19 @@
             }
         }# fin del metodo
 
+        public function selectLikeRFC( $rfc ){
+            try {
+                $query = "select * from cliente where rfc like '$rfc%'";
+                $db = $this->db->connect();
+                $rs = $db->prepare($query);
+                $rs->execute();
+                    
+                return json_encode($rs->fetchAll());
+            } catch (PDOException $e) {
+                echo "<p>Error no se pudo consultar el RFC debido a: </p>".$e->getMessage();
+            }
+        }# fin del metodo
+
         public function delete( $rfc ){
             try {
                 $query = "delete from cliente where rfc=:rfc";

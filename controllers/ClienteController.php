@@ -39,6 +39,20 @@
             $this->viewController->render( 'clientes/perfilCliente' );
         } # fin del metodo
 
+        public function findRFC( $rfc ){
+            $model = $this->loadModel( __CLASS__ );
+            $rs = $model->selectLikeRFC( $rfc[0] );
+            $clientes = array();
+            if( $rs != null ){
+                
+                echo $rs;
+            }else{
+                echo "No hay coincidencia";
+            }
+            
+            
+        }
+
         public function editarCliente( $params ){
             $datos = array(
                 'id_cliente'    => $params[0],
@@ -53,6 +67,7 @@
                 'correo_repre'  => $params[9],
                 'celular_repre' => $params[10]
             );
+            $this->viewController->clientes = $datos;
             $this->viewController->render( 'clientes/editarCliente' );
         } # fin del metodo
 

@@ -39,10 +39,12 @@
                 $rs = $modeloController->iniciarModel( $datosController );
                 if( $rs != null ){
                     session_start();
+                    $_SESSION['status'] = true;
                     $_SESSION['matricula'] = $rs['matricula'];
                     $_SESSION['nombre'] = $rs['nombre'];
                     $_SESSION['apaterno'] = $rs['apaterno'];
                     $_SESSION['amaterno'] = $rs['amaterno'];
+                    $_SESSION['nombreCompleto'] = $_SESSION['nombre'] . " " . $_SESSION['apaterno']; 
                     $_SESSION['rol'] = $rs['rol'];
                     header('location: ../dashboard');
                 }else{
@@ -54,6 +56,13 @@
             }
             
             
+        } # fin del metodo
+
+        public function cerrar(){
+            session_start();
+            session_unset();
+            session_destroy();
+            header('location: ../login');
         } # fin del metodo
 
         public function validacionCorreo( $correo ){

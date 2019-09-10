@@ -86,3 +86,9 @@ body {
       margin-left: -15rem;
     }
   }
+
+  .img-profile{
+    overflow: hidden;
+    width: 10px !important;
+    margin: 0 auto;
+  }
