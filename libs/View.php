@@ -1,25 +1,55 @@
 <?php
 
+    declare( strict_types = 1 );
+
     require_once 'Cliente.php';
 
+
+
+    /**
+     * <b>Class View</b>: Esta clase permite generar el HTML que el controlador necesite en el momento de la petición,
+     * ademas de poder transferirle información mediante propiedades de la misma clase.
+     */
     class View{
-        
-        #      P R O P I E D A D E S
-        # ---------------------------------
-        public $titulo;
+
+        /**
+         * Establece el titulo de la página web entre las etiquetas <title></title>
+         * @var string
+         */
+        private $titulo;
         public $errores = array();
         public $msjAddCliente = "";
         public $msjRmCliente = "";
         public $clientes = array();
         public $cliente;
 
-        #         M E T O D O S
-        # ---------------------------------
-        public function render( $nombreVista ){
-            if( file_exists( PATH_VIS . $nombreVista . ".php" ) ){
-                include_once PATH_VIS . $nombreVista . ".php";
-            }
+
+        /**
+         * @param string $fileView Nombre de la carpeta y vista que se quiere invocar, comprobara si existe en el
+         * directorio.
+         */
+        public function render(string $fileView ):void{
+            ( file_exists( PATH_VIS . $fileView . '.php' ) ) ?
+                include_once PATH_VIS . $fileView . '.php' :
+                "<p>No se pudo renderizar la página, no se encontro el directorio.</p>";
         } # fin del metodo
+
+
+        /**
+         * Establece el nombre del titulo de la página web entre las etiquetas title
+         * @param string $titulo
+         */
+        public function setTitulo(string $titulo ):void{
+            $this->titulo = $titulo;
+        } # fin del metodo
+
+        /**
+         * Devuelve el nombre del titulo de la página web.
+         * @return string
+         */
+        public function getTitulo():string{
+            return $this->titulo;
+        }
 
     } # fin de la clase
 

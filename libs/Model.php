@@ -1,16 +1,29 @@
 <?php
 
-    class Model{
+    declare(strict_types=1);
 
-        protected $db;
+/**
+ * <b>Class Model</b>:
+ * Clase que permite establecer cominicación con la BD, instanciando un objeto de tipo PDO
+ */
+class Model{
 
-        public function __construct(){
-            $this->db = new DB();
-        } # fin del constructor
+    /** Almacena un objeto BD
+     * @var DB
+     */
+    protected $db;
 
-       
+    /**
+     * <b>Model constructor</b>:
+     * Instancia la clase DB, devolviendo un objeto PDO
+     */
+    public function __construct(){
+        $this->db = new DB();
+    } # fin del constructor
 
-    } # fin de la clase
+
+
+} # fin de la clase
 
 
 ?>

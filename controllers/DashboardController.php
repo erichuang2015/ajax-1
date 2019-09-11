@@ -4,7 +4,7 @@
 
         public function __construct(){
             parent::__construct();
-            $this->viewController->titulo = "Dashboard";
+            $this->viewController->setTitulo("Dashboard");
         } # fin del constructor
 
         public function render(){

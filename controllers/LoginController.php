@@ -11,7 +11,7 @@
         # ---------------------------------
         public function __construct(){
             parent::__construct();
-            $this->viewController->titulo = "login";   
+            $this->viewController->setTitulo("login");
         } # fin del constructor
 
 

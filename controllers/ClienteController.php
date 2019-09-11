@@ -6,7 +6,7 @@
 
         public function __construct(){
             parent::__construct();
-            $this->viewController->titulo = "Clientes";
+            $this->viewController->setTitulo('Clientes');
         } # fin del constructor
 
         public function render(){

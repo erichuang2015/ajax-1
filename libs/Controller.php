@@ -1,33 +1,48 @@
 <?php
+    declare( strict_types = 1 );
 
-
+    /**
+     * Class Controller: Clase padre que permite interactuar con la clase View para obtener las vistas,
+     * ademas de pre cargar la clase Model para interactuar con la Base de datos.
+     */
     class Controller{
 
-        #      P R O P I E D A D E S
-        # ---------------------------------
+
+        /**
+         * @var View Almacena un objeto de tipo View, para obtener los metodos del mismo.
+         */
         protected $viewController;
 
-        #         M E T O D O S
-        # ---------------------------------
-        public function __construct(){
+
+        /**
+         * Controller constructor. Instancia la clase View mediante la propiedad $viewController
+         */
+        public function __construct(  ){
             $this->viewController = new View();
-        } # fin del constructor
+        } # fin del método
 
 
-        public function loadModel( $modelo ){
-            $modelo = str_replace( 'Controller', 'Model', $modelo );
+        /**
+         * Método que instancia la clase Model del controlador correspondiente y devuelve el objeto ModelController
+         * @param string $fileModel
+         * @return Model|null
+         */
+        public function loadModel(string $fileModel ):Model{
+            $modelName = str_replace( 'Controller', 'Model', $fileModel );
             $model = null;
-            if( file_exists( PATH_MOD . $modelo . ".php" ) ){
-                require_once PATH_MOD . $modelo . ".php";
-                $model = new $modelo();
+            if( file_exists( PATH_MOD . $modelName . '.php' ) ){
+                require_once PATH_MOD . str_replace( 'Controller', 'Model', $fileModel ) . '.php';
+                # instanciamos la clase Model
+                $model = new $modelName();
             }else{
-                $model = "<p>No se encontro el modelo</p>";
+                return $model = "<p>El modelo {$modelName} no se pudo encontrar</p>";
             }
             return $model;
-        } # fin del metodo
+        } # fin del método
 
-        
     } # fin de la clase
 
 
 ?>
+
+

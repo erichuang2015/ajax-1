@@ -5,7 +5,7 @@
 
         public function __construct(){
             parent::__construct();
-            $this->viewController->titulo = "Error";
+            $this->viewController->setTitulo("Error");
         } # fin del constructor
 
         public function render(){
