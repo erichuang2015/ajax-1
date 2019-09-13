@@ -19,40 +19,16 @@ class ClienteDTO{
     private $correo_repre;
     private $celular_repre;
 
-    /**
-     * ClienteDTO constructor. Inicializa todas las propiedades
-     * @param $id_cliente
-     * @param $razon_social
-     * @param $rfc
-     * @param $correo
-     * @param $telefono
-     * @param $direccion
-     * @param $nombre
-     * @param $apaterno
-     * @param $amaterno
-     * @param $correo_repre
-     * @param $celular_repre
-     */
-    public function __construct(/*$id_cliente, $razon_social, $rfc, $correo, $telefono, $direccion, $nombre,
-                                $apaterno, $amaterno, $correo_repre, $celular_repre*/){
-        /*$this->id_cliente = $id_cliente;
-        $this->razon_social = $razon_social;
-        $this->rfc = $rfc;
-        $this->correo = $correo;
-        $this->telefono = $telefono;
-        $this->direccion = $direccion;
-        $this->nombre = $nombre;
-        $this->apaterno = $apaterno;
-        $this->amaterno = $amaterno;
-        $this->correo_repre = $correo_repre;
-        $this->celular_repre = $celular_repre;*/
+
+    public function __construct(){
     }
 
     /**
      * Devuelve el id del cliente
      * @return int
      */
-    public function getIdCliente():int{
+    public function getIdCliente(): int
+    {
         return $this->id_cliente;
     }
 
@@ -69,7 +45,8 @@ class ClienteDTO{
      * Devuelve el nombre de la Razón Social de la organización
      * @return string
      */
-    public function getRazonSocial():string{
+    public function getRazonSocial(): string
+    {
         return $this->razon_social;
     }
 
@@ -77,7 +54,8 @@ class ClienteDTO{
      * Define la Razón Social de la organización
      * @param string
      */
-    public function setRazonSocial(string $razon_social): void{
+    public function setRazonSocial(string $razon_social): void
+    {
         $this->razon_social = $razon_social;
     }
 
@@ -85,7 +63,8 @@ class ClienteDTO{
      * Devuelve el RFC del cliente
      * @return string
      */
-    public function getRfc():string{
+    public function getRfc(): string
+    {
         return $this->rfc;
     }
 
@@ -93,15 +72,17 @@ class ClienteDTO{
      * Define el RFC del cliente, validando solamente 13 caracteres
      * @param string $rfc
      */
-    public function setRfc(string $rfc): void{
-        $this->rfc = ( strlen( $rfc ) > 13 ) ? null : $rfc ;
+    public function setRfc(string $rfc): void
+    {
+        $this->rfc = (strlen($rfc) > 13) ? null : $rfc;
     }
 
     /**
      * Devuelve el nombre de correo de un cliente
      * @return string
      */
-    public function getCorreo() : string{
+    public function getCorreo(): string
+    {
         return $this->correo;
     }
 
@@ -109,7 +90,8 @@ class ClienteDTO{
      * Define el nombre de correo electrónico del cliente
      * @param string $correo
      */
-    public function setCorreo( string $correo) : void{
+    public function setCorreo(string $correo): void
+    {
         $this->correo = $correo;
     }
 
@@ -117,7 +99,8 @@ class ClienteDTO{
      * Devuelve el numero telefonico del cliente
      * @return string
      */
-    public function getTelefono() : string{
+    public function getTelefono(): string
+    {
         return $this->telefono;
     }
 
@@ -125,15 +108,17 @@ class ClienteDTO{
      * Define el numero telefonico de un cliente
      * @param string $telefono
      */
-    public function setTelefono( string $telefono): void{
-        $this->telefono = ( strlen( $telefono ) > 10 ) ? null : $telefono;
+    public function setTelefono(string $telefono): void
+    {
+        $this->telefono = (strlen($telefono) > 10) ? null : $telefono;
     }
 
     /**
      * Devuelve la dirección del cliente
      * @return string
      */
-    public function getDireccion() : string{
+    public function getDireccion(): string
+    {
         return $this->direccion;
     }
 
@@ -141,7 +126,8 @@ class ClienteDTO{
      * Define la dirección donde se ubica el cliente
      * @param string $direccion
      */
-    public function setDireccion( string $direccion): void{
+    public function setDireccion(string $direccion): void
+    {
         $this->direccion = $direccion;
     }
 
@@ -149,7 +135,8 @@ class ClienteDTO{
      * Devuelve el nombre del representante legal
      * @return string
      */
-    public function getNombre():string {
+    public function getNombre(): string
+    {
         return $this->nombre;
     }
 
@@ -157,7 +144,8 @@ class ClienteDTO{
      * Define el nombre del representate legal del cliente
      * @param string $nombre
      */
-    public function setNombre( string $nombre): void{
+    public function setNombre(string $nombre): void
+    {
         $this->nombre = $nombre;
     }
 
@@ -165,7 +153,8 @@ class ClienteDTO{
      * Devuelve el apellido paterno del representante legal
      * @return string
      */
-    public function getApaterno():string{
+    public function getApaterno(): string
+    {
         return $this->apaterno;
     }
 
@@ -182,14 +171,16 @@ class ClienteDTO{
      * Devuelve el apellido materno del representante legal
      * @return string
      */
-    public function getAmaterno():string{
+    public function getAmaterno(): string
+    {
         return $this->amaterno;
     }
 
     /**
      * Define el apellido materno del representate legal del cliente
      */
-    public function setAmaterno(string $amaterno): void{
+    public function setAmaterno(string $amaterno): void
+    {
         $this->amaterno = $amaterno;
     }
 
@@ -197,7 +188,8 @@ class ClienteDTO{
      * Devuelve el correo electronico del representate legal del cliente
      * @return string
      */
-    public function getCorreoRepre():string{
+    public function getCorreoRepre(): string
+    {
         return $this->correo_repre;
     }
 
@@ -205,7 +197,8 @@ class ClienteDTO{
      * Define el correo electronico del representate legal del cliente
      * @param string $correo_repre
      */
-    public function setCorreoRepre(string $correo_repre): void{
+    public function setCorreoRepre(string $correo_repre): void
+    {
         $this->correo_repre = $correo_repre;
     }
 
@@ -213,7 +206,8 @@ class ClienteDTO{
      * Devuelve el numero de celular del representate legal del cliente
      * @return string
      */
-    public function getCelularRepre():string {
+    public function getCelularRepre(): string
+    {
         return $this->celular_repre;
     }
 
@@ -221,13 +215,10 @@ class ClienteDTO{
      * Define el numero de celular del representate legal del cliente
      * @param string $celular_repre
      */
-    public function setCelularRepre(string $celular_repre): void{
+    public function setCelularRepre(string $celular_repre): void
+    {
         $this->celular_repre = (strlen($celular_repre) > 10) ? null : $celular_repre;
     }
 
 
-
 } # fin de la clase
-
-
-?>

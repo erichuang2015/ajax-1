@@ -3,7 +3,7 @@
     declare( strict_types = 1 );
 
     require_once 'Cliente.php';
-
+    require_once 'ModelDTO/ClienteDTO.php';
 
 
     /**
@@ -22,6 +22,7 @@
         public $msjRmCliente = "";
         public $clientes = array();
         public $cliente;
+        public $clienteDTO;
 
 
         /**
@@ -49,6 +50,14 @@
          */
         public function getTitulo():string{
             return $this->titulo;
+        }
+
+        /**
+         * Define el objeto ClienteDTO pasado como parámetro a la propiedad clienteDTO de <b>View</b>
+         * @param ClienteDTO $cliente
+         */
+        public function setClienteDTO(ClienteDTO $cliente ) : void{
+            $this->clienteDTO = $cliente;
         }
 
     } # fin de la clase

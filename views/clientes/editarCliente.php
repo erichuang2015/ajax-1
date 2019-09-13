@@ -28,12 +28,12 @@
                         <!-- Razon Social -->
                         <div class="form-group col-md-6">
                             <label for="razonSocial">Razon Social</label>
-                            <input type="text" class="form-control" id="razonSocial" name="razonSocial" value="<?php echo str_replace('-', ' ', $this->clientes['razon_social']); ?>">
+                            <input type="text" class="form-control" id="razonSocial" name="razonSocial" value="<?php echo str_replace('-', ' ', $this->clienteDTO->getRazonSocial()); ?>">
                         </div>
                         <!-- RFC -->
                         <div class="form-group col-md-6">
                             <label for="rfc">Registro Federal de Contribuyentes</label>
-                            <input type="text" class="form-control" name="rfc" id="rfc" value="<?php echo $this->clientes['rfc']; ?>">
+                            <input type="text" class="form-control" name="rfc" id="rfc" value="<?php echo $this->clienteDTO->getRfc(); ?>">
                         </div>
                     </div>
                     
@@ -42,19 +42,19 @@
                         <!-- Razon Social -->
                         <div class="form-group col-md-6">
                             <label for="correo">Correo</label>
-                            <input type="text" class="form-control" name="correo" id="correo" value="<?php echo $this->clientes['correo']; ?>">
+                            <input type="text" class="form-control" name="correo" id="correo" value="<?php echo $this->clienteDTO->getCorreo(); ?>">
                         </div>
                         <!-- RFC -->
                         <div class="form-group col-md-6">
                             <label for="telefono">Telefono (Oficina o celular)</label>
-                            <input type="text" class="form-control" name="telefono" id="telefono" value="<?php echo $this->clientes['telefono']; ?>">
+                            <input type="text" class="form-control" name="telefono" id="telefono" value="<?php echo $this->clienteDTO->getTelefono(); ?>">
                         </div>
                     </div>
 
                     <!-- Dirección -->
                     <div class="form-group mb-5">
                         <label for="direccion">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion" value="<?php echo str_replace('-', ' ', $this->clientes['direccion']); ?>">
+                        <input type="text" class="form-control" name="direccion" id="direccion" value="<?php echo str_replace('-', ' ', $this->clienteDTO->getDireccion()); ?>">
                     </div>
 
                     <!-- Representante legal -->
@@ -64,16 +64,16 @@
                         <!-- Nombre -->
                         <div class="form-group col-md-4">
                             <label for="nombre_repre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre_repre" name="nombre_repre" value="<?php echo str_replace('-', ' ', $this->clientes['nombre']); ?>">
+                            <input type="text" class="form-control" id="nombre_repre" name="nombre_repre" value="<?php echo str_replace('-', ' ', $this->clienteDTO->getNombre()); ?>">
                         </div>
                         <!-- Apellidos -->
                         <div class="form-group col-md-4">
                             <label for="apaterno_repre">Apellido Paterno</label>
-                            <input type="text" class="form-control" id="apaterno_repre" name="apaterno_repre" value="<?php echo $this->clientes['apaterno']; ?>">
+                            <input type="text" class="form-control" id="apaterno_repre" name="apaterno_repre" value="<?php echo $this->clienteDTO->getApaterno(); ?>">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="amaterno_repre">Apellido Materno</label>
-                            <input type="text" class="form-control" id="amaterno_repre" name="amaterno_repre" value="<?php echo $this->clientes['amaterno']; ?>">
+                            <input type="text" class="form-control" id="amaterno_repre" name="amaterno_repre" value="<?php echo $this->clienteDTO->getAmaterno(); ?>">
                         </div>
                     </div>
                     <!-- correo y Telefono -->
@@ -81,16 +81,16 @@
                         <!-- Razon Social -->
                         <div class="form-group col-md-6">
                             <label for="correo_repre">Correo</label>
-                            <input type="text" class="form-control" id="correo_repre" name="correo_repre" value="<?php echo $this->clientes['correo_repre']; ?>">
+                            <input type="text" class="form-control" id="correo_repre" name="correo_repre" value="<?php echo $this->clienteDTO->getCorreoRepre(); ?>">
                         </div>
                         <!-- RFC -->
                         <div class="form-group col-md-6">
                             <label for="celular">Celular</label>
-                            <input type="text" class="form-control" name="celular" id="celular" value="<?php echo $this->clientes['celular_repre']; ?>">
+                            <input type="text" class="form-control" name="celular" id="celular" value="<?php echo $this->clienteDTO->getCelularRepre(); ?>">
                         </div>
                     </div>
                     <div class="text-center mt-5">
-                        <input type="hidden" name="id_cliente" value="<?php echo $this->clientes['id_cliente'];?>">
+                        <input type="hidden" name="id_cliente" value="<?php echo $this->clienteDTO->getIdCliente();?>">
                         <button type="submit" class="btn btn-success" name="sendEditClient">Agregar al nuevo cliente</button>
                     </div>
                 </form>

@@ -21,8 +21,7 @@
 
             <!-- Formulario -->
             <div class="col-12">
-                <!--<form method="POST" action="<?php /*echo PATH; */?>cliente/insertClient">-->
-                <form method="POST" action="<?php /*echo PATH; */?>cliente/insertarDTO">
+                <form method="POST" action="<?php echo PATH; ?>cliente/insertarCliente">
                     <!-- RFC y Razon Social -->
                     <div class="form-row">
                         <!-- Razon Social -->

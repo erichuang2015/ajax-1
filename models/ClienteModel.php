@@ -1,6 +1,7 @@
 <?php
 
-
+declare(strict_types=1);
+require_once 'ModelDTO/ClienteDTO.php';
 
     class ClienteModel extends Model{
 
@@ -75,18 +76,19 @@
             }
         }# fin del metodo
 
-        public function selectLikeRFC( $rfc ){
-            try {
+        public function rfcParecido( ClienteDTO $cliente ) : string {
+            $rfc = $cliente->getRfc();
+            try{
                 $query = "select * from cliente where rfc like '$rfc%'";
                 $db = $this->db->connect();
                 $rs = $db->prepare($query);
                 $rs->execute();
-                    
+
                 return json_encode($rs->fetchAll());
-            } catch (PDOException $e) {
-                echo "<p>Error no se pudo consultar el RFC debido a: </p>".$e->getMessage();
+            }catch (PDOException $e){
+                echo $e->getMessage();
             }
-        }# fin del metodo
+        } # fin del metodo
 
         public function delete( $rfc ){
             try {
@@ -98,6 +100,32 @@
                 
                     
                 return $rs;
+            } catch (PDOException $e) {
+                echo "<p>Error no se pudo agregar al nuevo cliente debido a: </p>".$e->getMessage();
+            }
+        } # fin del metodo
+
+        public function insertarClienteModel( ClienteDTO $cliente ) : bool{
+            #$llaves = array_keys( $datos );
+            try {
+                $query =
+                    "insert into cliente (razon_social, rfc, direccion, telefono, correo, nombre, apaterno, amaterno, celular_repre, correo_repre) values (:razon_social, :rfc, :direccion, :telefono, :correo, :nombre, :apaterno, :amaterno, :celular_repre, :correo_repre)";
+
+
+                $db = $this->db->connect()->prepare( $query );
+                $stmt = $db->execute([
+                    ':razon_social'  => $cliente->getRazonSocial(),
+                    ':rfc'           => $cliente->getRfc(),
+                    ':direccion'     => $cliente->getDireccion(),
+                    ':telefono'      => $cliente->getTelefono(),
+                    ':correo'        => $cliente->getCorreo(),
+                    ':nombre'        => $cliente->getNombre(),
+                    ':apaterno'      => $cliente->getApaterno(),
+                    ':amaterno'      => $cliente->getAmaterno(),
+                    ':celular_repre' => $cliente->getCelularRepre(),
+                    ':correo_repre'  => $cliente->getCelularRepre()
+                ]);
+                return $stmt;
             } catch (PDOException $e) {
                 echo "<p>Error no se pudo agregar al nuevo cliente debido a: </p>".$e->getMessage();
             }

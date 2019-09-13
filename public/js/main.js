@@ -36,11 +36,12 @@ function buscar( event ){
     console.log( rfc.length );
     if( rfc.length > 0 ){
         var mxl = new XMLHttpRequest();
-        mxl.open( 'GET', 'http://localhost/ajax/cliente/findRFC/'+rfc, true );
+        mxl.open( 'GET', 'http://localhost/ajax/cliente/buscarRFC/'+rfc, true );
         mxl.send();
         mxl.onreadystatechange = function(){
             if( this.readyState == 4 && this.status == 200 ){
                 var tbody = document.querySelector( '#tbody-clientes' );
+                console.log(this.responseText);
                 var clie = JSON.parse(this.responseText);
                 var fila = "";
                 console.log(clie);
