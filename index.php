@@ -1,28 +1,11 @@
 <?php
 
     require_once 'config/config.php';
+    require_once 'exceptions/ClienteException.php';
     require_once 'config/autoload.php';
-    
-    //$rq = new App();
-    #require_once 'libs/Validate.php';
 
-    $string = " Juan ";
-    print_r( "delimiter".$string."delimiter" );
-    echo "<br>";
-    $string = Validate::validateString($string);
-    print_r( "delimiter".$string."delimiter" );
-    echo "<br>";
-    echo gettype($string);
-    echo "<hr>";
+    //require_once 'ModelDTO/ClienteDTO.php';
+    $rq = new App();
 
-
-    $correo = " cubjgmail.com ";
-    print_r( "delimiter".$correo."delimiter" );
-    echo "<br>";
-    $correo = Validate::validateEmail( $correo );
-    print_r( "delimiter".$correo."delimiter" );
-    echo "<br>";
-    echo gettype($correo);
-    echo "<hr>";
 
 ?>

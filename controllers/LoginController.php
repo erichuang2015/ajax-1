@@ -20,7 +20,7 @@
         } # fin del metodo
 
         public function iniciar(){
-            $modeloController;
+            #$modeloController;
             /**/
             $correoE = $this->validacionCorreo( $_POST['correo'] );
             $passE = $this->validarPass( $_POST['password'] );

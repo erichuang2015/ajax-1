@@ -22,38 +22,37 @@ require_once 'ModelDTO/ClienteDTO.php';
 
         } # fin del metodo
 
-        public function updateClientModel( $datos ){
-            $llaves = array_keys( $datos );
+        public function updateClientModel( ClienteDTO $cliente ) : bool{
+            #$llaves = array_keys( $cliente->getProperties() );
             try {
                 $query = "update cliente set razon_social=:razon_social, rfc=:rfc, direccion=:direccion, telefono=:telefono, correo=:correo, nombre=:nombre, apaterno=:apaterno, amaterno=:amaterno, celular_repre=:celular_repre, correo_repre=:correo_repre where id_cliente=:id_cliente";
                 $db = $this->db->connect()->prepare( $query );
                 $stmt = $db->execute( [
-                    ':razon_social' => $datos['razon_social'],
-                    ':rfc' => $datos['rfc'],
-                    ':direccion' => $datos['direccion'],
-                    ':telefono' => $datos['telefono'],
-                    ':correo' => $datos['correo'],
-                    ':nombre' => $datos['nombre'],
-                    ':apaterno' => $datos['apaterno'],
-                    ':amaterno' => $datos['amaterno'],
-                    ':celular_repre' => $datos['celular_repre'],
-                    ':correo_repre' => $datos['correo_repre'],
-                    ':id_cliente' => $datos['id_cliente']
+                    ':razon_social' => $cliente->getRazonSocial(),
+                    ':rfc' => $cliente->getRfc(),
+                    ':direccion' => $cliente->getDireccion(),
+                    ':telefono' => $cliente->getTelefono(),
+                    ':correo' => $cliente->getCorreo(),
+                    ':nombre' => $cliente->getNombre(),
+                    ':apaterno' => $cliente->getApaterno(),
+                    ':amaterno' => $cliente->getAmaterno(),
+                    ':celular_repre' => $cliente->getCelularRepre(),
+                    ':correo_repre' => $cliente->getCorreoRepre(),
+                    ':id_cliente' => $cliente->getIdCliente()
                 ] );
                 return $stmt;
+                #return $query;
             } catch (PDOException $e) {
                 echo "<p>Error no se pudo agregar al nuevo cliente debido a: </p>".$e->getMessage();
             }
 
         } # fin del metodo
 
-        public function selectAll(){
-            $record = array();
+        public function selectAll() : array{
             try {
                 $query = "select * from cliente";
                 $db = $this->db->connect();
                 $rs = $db->query($query);
-                
                     
                 return $rs->fetchAll();
             } catch (PDOException $e) {

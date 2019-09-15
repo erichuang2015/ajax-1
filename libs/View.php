@@ -12,17 +12,27 @@
      */
     class View{
 
-        /**
-         * Establece el titulo de la página web entre las etiquetas <title></title>
+        /** Establece el titulo de la página web entre las etiquetas <title></title>
          * @var string
          */
         private $titulo;
+        /** Almacena los errores que puedan ocurrir en las validaciones sobre los datos enviados por formulario
+         * @var array
+         */
         public $errores = array();
-        public $msjAddCliente = "";
+        /**  @var ClienteDTO
+         */
+        public $clienteDTO;
+        /** Almacena los mensajes de las operaciones CRUD
+         * @var string
+         */
+        public $msjGralCliente = "";
+
         public $msjRmCliente = "";
         public $clientes = array();
         public $cliente;
-        public $clienteDTO;
+
+
 
 
         /**

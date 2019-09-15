@@ -215,9 +215,24 @@ class ClienteDTO{
      * Define el numero de celular del representate legal del cliente
      * @param string $celular_repre
      */
-    public function setCelularRepre(string $celular_repre): void
-    {
+    public function setCelularRepre(string $celular_repre): void{
         $this->celular_repre = (strlen($celular_repre) > 10) ? null : $celular_repre;
+    }
+
+
+    /**
+     * <b>getProperties:</b>Devuelve en un arreglo el nombre de las propiedades usadas (no nulas) del objeto creado,
+     * para usarlas con array_key().
+     * @return array
+     */
+    public function getProperties() : array{
+        $obj = array();
+        foreach( get_object_vars($this) as $cliente => $propiedad ){
+            if( $propiedad != null ){
+                array_push($obj, $cliente);
+            }
+        }
+        return $obj;
     }
 
 

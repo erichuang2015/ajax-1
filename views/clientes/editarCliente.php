@@ -13,7 +13,7 @@
     <section class="container">
         <div class="row">
             <div class="col-12 text-right">
-                <?php echo $this->msjAddCliente; ?>
+                <?php echo $this->msjGralCliente; ?>
                 <a href="<?php echo PATH; ?>cliente" class="btn btn-primary text-white">Regresar</a>
             </div>
             <div class="col-12 m-auto">
@@ -34,6 +34,7 @@
                         <div class="form-group col-md-6">
                             <label for="rfc">Registro Federal de Contribuyentes</label>
                             <input type="text" class="form-control" name="rfc" id="rfc" value="<?php echo $this->clienteDTO->getRfc(); ?>">
+                            <?php echo (isset( $this->errores[0])) ?  $this->errores[0] : " "; ?>
                         </div>
                     </div>
                     
@@ -43,11 +44,13 @@
                         <div class="form-group col-md-6">
                             <label for="correo">Correo</label>
                             <input type="text" class="form-control" name="correo" id="correo" value="<?php echo $this->clienteDTO->getCorreo(); ?>">
+                            <?php echo (isset( $this->errores[2])) ?  $this->errores[2] : " "; ?>
                         </div>
                         <!-- RFC -->
                         <div class="form-group col-md-6">
                             <label for="telefono">Telefono (Oficina o celular)</label>
                             <input type="text" class="form-control" name="telefono" id="telefono" value="<?php echo $this->clienteDTO->getTelefono(); ?>">
+                            <?php echo (isset( $this->errores[1])) ?  $this->errores[1] : " "; ?>
                         </div>
                     </div>
 
@@ -82,16 +85,18 @@
                         <div class="form-group col-md-6">
                             <label for="correo_repre">Correo</label>
                             <input type="text" class="form-control" id="correo_repre" name="correo_repre" value="<?php echo $this->clienteDTO->getCorreoRepre(); ?>">
+                            <?php echo (isset( $this->errores[4])) ?  $this->errores[4] : " "; ?>
                         </div>
                         <!-- RFC -->
                         <div class="form-group col-md-6">
                             <label for="celular">Celular</label>
                             <input type="text" class="form-control" name="celular" id="celular" value="<?php echo $this->clienteDTO->getCelularRepre(); ?>">
+                            <?php echo (isset( $this->errores[3])) ?  $this->errores[3] : " "; ?>
                         </div>
                     </div>
                     <div class="text-center mt-5">
                         <input type="hidden" name="id_cliente" value="<?php echo $this->clienteDTO->getIdCliente();?>">
-                        <button type="submit" class="btn btn-success" name="sendEditClient">Agregar al nuevo cliente</button>
+                        <button type="submit" class="btn btn-success" name="sendEditClient">Actualizar</button>
                     </div>
                 </form>
             </div>

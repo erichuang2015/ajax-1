@@ -33,6 +33,7 @@
                         <div class="form-group col-md-6">
                             <label for="rfc">Registro Federal de Contribuyentes</label>
                             <input type="text" class="form-control" name="rfc" id="rfc" placeholder="RFC">
+                            <?php echo (isset( $this->errores[0])) ?  $this->errores[0] : " "; ?>
                         </div>
                     </div>
                     
@@ -42,11 +43,13 @@
                         <div class="form-group col-md-6">
                             <label for="correo">Correo</label>
                             <input type="text" class="form-control" name="correo" id="correo" placeholder="Correo electrónico">
+                            <?php echo (isset( $this->errores[2])) ?  $this->errores[2] : " "; ?>
                         </div>
                         <!-- RFC -->
                         <div class="form-group col-md-6">
                             <label for="telefono">Telefono (Oficina o celular)</label>
                             <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono">
+                            <?php echo (isset( $this->errores[1])) ?  $this->errores[1] : " "; ?>
                         </div>
                     </div>
 
@@ -77,15 +80,17 @@
                     </div>
                     <!-- correo y Telefono -->
                     <div class="form-row">
-                        <!-- Razon Social -->
+                        <!-- Correo del representante -->
                         <div class="form-group col-md-6">
                             <label for="correo_repre">Correo</label>
                             <input type="text" class="form-control" id="correo_repre" name="correo_repre" placeholder="Correo electrónico">
+                            <?php echo (isset( $this->errores[4])) ?  $this->errores[4] : " "; ?>
                         </div>
                         <!-- RFC -->
                         <div class="form-group col-md-6">
                             <label for="celular">Celular</label>
                             <input type="text" class="form-control" name="celular" id="celular" placeholder="Celular">
+                            <?php echo (isset( $this->errores[3])) ?  $this->errores[3] : " "; ?>
                         </div>
                     </div>
                     <div class="text-center mt-5">
